@@ -1,0 +1,62 @@
+.ios, .md {
+
+page-login-page {
+ 
+    .scroll-content {
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+ 
+    img {
+      width: 50%;
+      height: auto;
+      margin: 0 auto;
+    }
+ 
+    #cloud-layer {
+      ///background-image: url(../assets/images/back.jpg);
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+ 
+      ion-row {
+        align-items: center;
+        text-align: center;
+      }
+ 
+      ion-item {
+          border-radius: 40px !important;
+          padding-left: 10px !important;
+          margin-bottom: 10px;
+          background-color: 	#ebfaeb; 
+          opacity: 0.7;
+          font-size: 0.9em;
+		  ///border-style: groove;
+		  border-color: #5ab75b;
+		  border-width: 2px;
+		  color: 	#000000; 
+      }
+ 
+      ion-list {
+          margin: 0;
+      }
+ 
+      .login-button {
+          width: 70%;
+          border-radius: 30px;
+          font-size: 0.9em;
+          border: 1px solid #fff; 
+          background-color:	#5ab75b;
+      }
+	  .error {
+		color:	#5ab75b;
+		 
+	  }
+ 
+ 
+  
+}
+}

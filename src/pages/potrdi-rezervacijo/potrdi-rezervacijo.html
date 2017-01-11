@@ -1,0 +1,45 @@
+<!--
+  Generated template for the PotrdiRezervacijo page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Potrdi rezervacijo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+   <br>
+    <ion-icon ios="ios-information-circle" md="md-information-circle"></ion-icon>        
+   <ion-item>
+     <ion-label>Lokacija: {{frizerstvo.ime}}</ion-label>
+   </ion-item>
+   <br><br>
+   <ion-icon ios="ios-contact" md="md-contact"></ion-icon>
+     <ion-item>
+     <ion-label>Izbran delavec: {{employee.name}}</ion-label>
+   </ion-item>
+   <!--<p>Izbran termin: {{day.hour}} - {{day.to}}</p>-->
+   <br>
+   <br>
+   <ion-icon ios="ios-clock" md="md-clock"></ion-icon>
+  <ion-item>
+  <ion-label>Izberi termin:</ion-label>
+  <ion-datetime displayFormat="HH:mm" [(ngModel)]="date"></ion-datetime>
+</ion-item>
+<br>
+<br>
+<ion-icon ios="ios-clipboard" md="md-clipboard"></ion-icon>
+<ion-item>
+   <ion-label floating>Opis usluge: </ion-label>
+   <ion-textarea rows="3" [(ngModel)]="note"></ion-textarea>
+ </ion-item>
+ <br><br>
+<button ion-button color="secondary" full (click)="makeReservation()">Rezerviraj</button>
+</ion-content>

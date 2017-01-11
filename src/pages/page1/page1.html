@@ -1,0 +1,54 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Frizerstvo</ion-title>
+  </ion-navbar>
+</ion-header> --> 
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Frizerstva
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+<!--
+<ion-slides pager>
+<ion-slide>
+	<div #map id="map"></div>
+</ion-slide>
+</ion-slides>
+-->
+
+
+  <ion-card class="card" *ngFor="let frizerstvo of frizerstva" (click) = "rezerviraj(frizerstvo)">
+ 
+ <!-- <div #map id="map" onload="loadMap();"></div> -->
+ 
+  <img src="{{frizerstvo.imgsrc}}" class="img">
+
+  <ion-item class="red">
+      <p class="title">
+       {{frizerstvo.ime}}
+      </p> 
+      
+     <ion-icon ios="ios-car" md="md-car" class="right">{{frizerstvo.dist}} km</ion-icon>
+     
+     <ion-icon ios="ios-star" md="md-star" class="right">{{frizerstvo.rating}}&nbsp;&nbsp;</ion-icon>
+  </ion-item>
+      
+ 
+  
+  </ion-card>
+  
+  
+</ion-content>
+<ion-nav swipeBackEnabled="false"></ion-nav>

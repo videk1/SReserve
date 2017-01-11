@@ -1,0 +1,148 @@
+<!--
+  Generated template for the Rezerviraj page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      {{frizerstvo.ime}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
+    </ion-buttons>  
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+ <div #map id="map" onload="loadMap();"></div>
+  <button ion-button color="light" icon-left class="toLeft" (click)="back();" [disabled]="isValid()" round>
+      <ion-icon name='arrow-back'></ion-icon>
+      Nazaj
+    </button>
+ <button ion-button color="light" icon-right class="toRight" (click)="next();" round>
+      Naprej
+      <ion-icon name='arrow-forward'></ion-icon>
+    </button>
+ <div padding>
+  <ion-segment [(ngModel)]="days">
+    <ion-segment-button value="firstDay">
+      {{firstDay}}
+    </ion-segment-button>
+    <ion-segment-button value="secondDay">
+      {{secondDay}}
+    </ion-segment-button>
+    <ion-segment-button value="thirdDay">
+      {{thirdDay}}
+    </ion-segment-button>
+  </ion-segment>
+</div>
+<div [ngSwitch]="days">
+  <ion-list *ngSwitchCase="'firstDay'" ng-selected="selected">
+    <div padding>
+    <ion-segment [(ngModel)] = "selectedSegmentbla">
+      <ion-segment-button *ngFor = "let emp of usluzbenci; let x = index" (click)="showSegment(emp.id)" value="emp.id">
+        {{emp.name}}
+      </ion-segment-button>
+    </ion-segment>
+    </div>
+    <div>
+      <ion-list *ngFor="let emp of usluzbenci; let i = index" [hidden]="hideSegment(selectedSegment, emp.id)">
+          <div *ngIf="emp.firstDay.isFreeAllDay">
+            <ion-item>
+              Prosto: 7:00 - 18:00
+              <ion-icon ios="ios-checkmark" md="md-checkmark" class="right"></ion-icon>
+            </ion-item>
+            <ion-item (click)="confirm(emp, 'fd')">
+              Rezerviraj svoj termin!
+            </ion-item>
+          </div>
+          <div *ngIf="!emp.firstDay.isFreeAllDay">
+            <ion-item *ngFor="let event of emp.firstDay.plan">
+              {{olepsaj(event.startDate)}} - {{olepsaj(event.endDate)}} = {{event.title}} 
+              <ion-icon ios="ios-close" md="md-close" class="right"></ion-icon>
+            </ion-item>
+            <ion-item (click)="confirm(emp, 'fd')">
+              Rezerviraj svoj termin!
+            </ion-item>
+          </div>
+      </ion-list>
+    </div>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'secondDay'">
+ <div padding>
+    <ion-segment [(ngModel)] = "selectedSegmentbla">
+      <ion-segment-button *ngFor = "let emp of usluzbenci; let x = index" (click)="showSegment(emp.id)" value="emp.id">
+        {{emp.name}}
+      </ion-segment-button>
+    </ion-segment>
+    </div>
+    <div>
+      <ion-list *ngFor="let emp of usluzbenci; let i = index" [hidden]="hideSegment(selectedSegment, emp.id)">
+          <div *ngIf="emp.secondDay.isFreeAllDay">
+            <ion-item>
+              Prosto: 7:00 - 18:00
+              <ion-icon ios="ios-checkmark" md="md-checkmark" class="right"></ion-icon>
+            </ion-item>
+            <ion-item (click)="confirm(emp, 'sd')">
+              Rezerviraj svoj termin!
+            </ion-item>
+          </div>
+          <div *ngIf="!emp.secondDay.isFreeAllDay">
+            <ion-item *ngFor="let event of emp.secondDay.plan">
+              {{olepsaj(event.startDate)}} - {{olepsaj(event.endDate)}} = {{event.title}}
+              <ion-icon ios="ios-close" md="md-close" class="right"></ion-icon>
+            </ion-item>
+            <ion-item (click)="confirm(emp, 'sd')">
+              Rezerviraj svoj termin!
+            </ion-item>
+          </div>
+      </ion-list>
+    </div>
+  </ion-list>
+
+
+
+
+
+
+
+    <ion-list *ngSwitchCase="'thirdDay'">
+        <div padding>
+    <ion-segment [(ngModel)] = "selectedSegmentbla">
+      <ion-segment-button *ngFor = "let emp of usluzbenci; let x = index" (click)="showSegment(emp.id)" value="emp.id">
+        {{emp.name}}
+      </ion-segment-button>
+    </ion-segment>
+    </div>
+    <div>
+      <ion-list *ngFor="let emp of usluzbenci; let i = index" [hidden]="hideSegment(selectedSegment, emp.id)">
+          <div *ngIf="emp.thirdDay.isFreeAllDay">
+            <ion-item>
+              Prosto: 7:00 - 18:00
+              <ion-icon ios="ios-checkmark" md="md-checkmark" class="right"></ion-icon>
+            </ion-item>
+            <ion-item (click)="confirm(emp, 'td')">
+              Rezerviraj svoj termin!
+            </ion-item>
+          </div>
+          <div *ngIf="!emp.thirdDay.isFreeAllDay">
+            <ion-item *ngFor="let event of emp.thirdDay.plan">
+              {{olepsaj(event.startDate)}} - {{olepsaj(event.endDate)}} = {{event.title}} 
+              <ion-icon ios="ios-close" md="md-close" class="right"></ion-icon>
+            </ion-item>
+            <ion-item (click)="confirm(emp, 'td')">
+              Rezerviraj svoj termin!
+            </ion-item>
+          </div>
+      </ion-list>
+    </div>
+  </ion-list>
+</div>
+</ion-content>

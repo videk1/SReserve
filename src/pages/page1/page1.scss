@@ -1,0 +1,46 @@
+.ios, .md {
+ 
+    page-page1 {
+ 
+      .scroll-content {
+        height: 100%
+      }
+ 
+      #map {
+        width: 100%;
+        height: 50%;
+      }
+	  .card {
+		display: flex;
+		width: 95%;
+		flex-direction: column;
+    height: 25%;
+    background-color: #ffffff;
+    border-style: ridge;
+	  }
+    .img {
+      height: 53%;
+      width: 25%;
+      display: block;
+      margin: auto;
+    }
+    .red{
+      background-color: #5ab75b;
+      height: 25%;
+      bottom: 0px;
+      color: white;
+    }
+    .red2{
+      background-color: #D7534F;
+    }
+    .title {
+      color: white;
+      font-size: large;
+    }
+    .right{
+      float: right;
+    }
+ 
+    }
+ 
+}
